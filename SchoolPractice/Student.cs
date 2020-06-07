@@ -5,11 +5,22 @@
 
 namespace SchoolPractice
 {
-    public class Student
+    public class Student1
     {
         private string Name;
         private int StudentId;
         private int NumberOfCredits;
         private double Gpa;
+        public Student1(string name, int studentId,
+            int numberOfCredits, double gpa)
+        {
+            Name = name;
+            StudentId = studentId;
+            NumberOfCredits = numberOfCredits;
+            Gpa = gpa;
+        }
+
+        
     }
+    
 }
