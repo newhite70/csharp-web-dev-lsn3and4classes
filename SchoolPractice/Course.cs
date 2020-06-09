@@ -1,41 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
 
 
 namespace SchoolPractice
 {
-    class Course
+    public class Course
     {
-        public string CourseName { get; set; }
-        private List<Student1> Students = new List<Student1>();
-        //private string v1;
-        //private Student1 nick;
-        //private Teacher john;
-        //private int v2;
+        public string Topic { get; set; }
+        public Teacher Instructor { get; set; }
+        public List<Student> enrolledStudents { get; set; }
 
-        public Teacher Instructor {get; set;}
-        public int Credits { get; set; }
-
-        private int NumberofStudents { get; }
-
-        public Course(string coursename, Student1 students,
-             Teacher instructor, int credits)
+        public Course(string topic, Teacher instructor)
         {
-            CourseName = coursename;
-            Students.Add(students);
+            Topic = topic;
             Instructor = instructor;
-            Credits = credits;
-            NumberofStudents = Students.Count;
         }
+
+
+        // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather than
+        //  just the class fields.
+        public override string ToString()
+        {
+            return Topic + " Instructor: " + Instructor + ", Student Count: " + enrolledStudents.Count + ")";
+        }
+
+
+        // TODO: Add your custom 'Equals' method here. Consider which fields should match in order to call two
+        //  Course objects equal.
+        public override bool Equals(object obj)
+        {
+            return obj is Course course &&
+                   Topic == course.Topic &&
+                   EqualityComparer<Teacher>.Default.Equals(Instructor, course.Instructor);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Topic, Instructor);
+        }
+
+
+        
         
 
-        //public Course(string v1, Student1 nick, Teacher john, int v2)
-        //{
-        //this.v1 = v1;
-        //this.nick = nick;
-        //this.john = john;
-        //this.v2 = v2;
-        //}
+
+
+
+
+
     }
 }

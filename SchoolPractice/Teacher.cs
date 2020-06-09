@@ -1,24 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
+using Microsoft.VisualBasic;
+using System;
 namespace SchoolPractice
 {
-    class Teacher
+    public class Teacher
     {
         public string FirstName { get; set; }
-        public string LastName { get; set;}
+        public string LastName { get; set; }
         public string Subject { get; set; }
         public int YearsTeaching { get; set; }
 
-        public Teacher(string fname, string lname, string subject, int yearsteaching)
+        public Teacher(string firstName, string lastName, string subject, int yearsTeaching)
         {
-            FirstName = fname;
-            LastName = lname;
+            FirstName = firstName;
+            LastName = lastName;
             Subject = subject;
-            YearsTeaching = yearsteaching;
+            YearsTeaching = yearsTeaching;
         }
-        Teacher John = new Teacher("John", "Ham", "Code", 12);
+
+
+        public override string ToString()
+        {
+            return FirstName + " "+ LastName + " is the instructor for " + Subject + " and has taught for " + YearsTeaching + " years";
+        }
 
     }
 }
